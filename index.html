@@ -10,10 +10,6 @@
 
     <meta name="viewport" content="width=`, initial-scale=1.0">
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj
-
-    +3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
     <link rel="stylesheet" href="asseset /main.css"/>
 
     <title>Homework-3></title>
@@ -21,10 +17,49 @@
 </head>
 
 <body>
-    <div>
-        <button class="">start quiz</button>
+    <div
+        class="card-holder">
+
+         <button class="" id="start-quiz">start quiz</button>
+
+        <p class="" id="question-title">What is 2 + 2?</p>
+
+        <form class="answer" id="answer-form">
+
+        <ul class="answer">
+
+            <li class="answer">
+                <input type="radio" name="answer" id="answer-1" value="answer-1">
+                <label for="answer-1" id="answer-1-lable">4</label>
+            </li>
+
+            <li class="answer">
+                <input type="radio" name="answer" id="answer-2" value="answer-2">
+                <label for="answer-2" id="answer-2-lable">8</label>
+            </li>
+
+            <li class="answer">
+                <input type="radio" name="answer" id="answer-3" value="answer-3">
+                <label for="answer-3" id="answer-3-lable">12</label>
+            </li>
+
+            <li class="answer">
+                <input type="radio" name="answer" id="answer-4">
+                <label for="answer-4" id="answer-4-lable">40</label>
+            </li>
+
+        </ul>
+        
+        <button class="" id="quit">Quit</button>
+
+        <button class="" id="next">Next</button>   
+
+        </form>
+
+     <h3 class="timmer" id="timmer">t</h3>
+
     </div>
-    <script src="asseset /script.js" ></script>
+    <script src="./asseset /script.js" ></script>
 
 </body>
 
