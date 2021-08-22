@@ -102,7 +102,7 @@ startQuiz.addEventListener("click", (e) => {
 function checkTimmer() {
     if (startTime === 0) {
         questionTitle.innerText = `You did not complete the quiz in time`
-        answersForm.style.display = "none"
+        answerForm.style.display = "none"
         timer.style.display = "none"
         startQuiz.style.display = "initial"
     }
@@ -114,7 +114,6 @@ setInterval(() => {
     checkTimmer()
 }, 1000);
 
-//decrease time function
 function decreaseTimer() {
     startTime - 10
 }
@@ -126,13 +125,12 @@ function stageNextQuestion(index, correct) {
     if (index === (questionTotal)) {
         console.log('quiz completed')
         questionTitle.innerText = `You have completed the quiz with a score of ${(correctAnswers / questionTotal) * 100}%`
-        answersForm.style.display = "none"
+        answerForm.style.display = "none"
         timer.style.display = "none"
         startQuiz.style.display = "initial"
         return
     }
 
-    //stage the next question to be answered
     console.log(`Question Number ${index + 1} after question ${index} was ${correct}`)
     questionTitle.innerText = questions[index].question
     answer1Label.innerText = questions[index].one
@@ -142,7 +140,7 @@ function stageNextQuestion(index, correct) {
 
 }
 
-answersForm.addEventListener('submit', (e) => {
+answerForm.addEventListener('submit', (e) => {
     e.preventDefault()
     console.log('submitted')
 
@@ -180,7 +178,7 @@ answersForm.addEventListener('submit', (e) => {
 quitButton.addEventListener('click', (e) => {
     e.preventDefault()
     questionTitle.style.display = "none"
-    answersForm.style.display = "none"
+    answerForm.style.display = "none"
     timer.style.display = "none"
     startQuiz.style.display = "initial"
 })
