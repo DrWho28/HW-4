@@ -3,7 +3,7 @@ const answerForm = document.getElementById("answer-form")
 const timmer = document.getElementById("timmer")
 const nextButton = document.getElementById("next")
 const quitButton = document.getElementById("quit")
-var startTime = 10
+var startTime = 15
 
 
 const questionTitle = document.getElementById("question-title")
@@ -16,7 +16,7 @@ const answer2 = document.getElementById("answer-2")
 const answer3 = document.getElementById("answer-3")
 const answer4 = document.getElementById("answer-4")
 
-const question = [
+const questions = [
     {
         question: "What is 2 + 2?",
         answerNum: 4,
@@ -61,22 +61,20 @@ function quiz() {
     answerForm.style.display = "initial"
     timmer.style.display = "initial"
 
-    answerForm.addEventListener("submit", (e) => {
-        e.preventDefault()
-    })
-
     questionNum = 0
 
-    questionTotal = questions.length
+    questionTool = questions.length
 
     let correctAnswers = 0
 
-    question.forEach(question => {
+    questions.forEach(question => {
         questionTitle.innerText = question.question
         answer1Lable.innerText = question.one
         answer2Lable.innerText = question.two
         answer3Lable.innerText = question.three
         answer4Lable.innerText = question.four
+        console.log("starquiz")
+      let nextQuestion= true
 
         while (nextQuestion) {
             nextButton.addEventListener("click", (e) => {
@@ -87,7 +85,7 @@ function quiz() {
                     correctAnswer++
                     nextQuestion = true
                 }
-
+console.dir(quiz)
             })
         }
     })
@@ -103,7 +101,7 @@ function checkTimmer() {
     if (startTime === 0) {
         questionTitle.innerText = `You did not complete the quiz in time`
         answerForm.style.display = "none"
-        timer.style.display = "none"
+        timmer.style.display = "none"
         startQuiz.style.display = "initial"
     }
 }
@@ -133,10 +131,10 @@ function stageNextQuestion(index, correct) {
 
     console.log(`Question Number ${index + 1} after question ${index} was ${correct}`)
     questionTitle.innerText = questions[index].question
-    answer1Label.innerText = questions[index].one
-    answer2Label.innerText = questions[index].two
-    answer3Label.innerText = questions[index].three
-    answer4Label.innerText = questions[index].four
+    answer1Lable.innerText = questions[index].one
+    answer2Lable.innerText = questions[index].two
+    answer3Lable.innerText = questions[index].three
+    answer4Lable.innerText = questions[index].four
 
 }
 
@@ -144,7 +142,7 @@ answerForm.addEventListener('submit', (e) => {
     e.preventDefault()
     console.log('submitted')
 
-    let question = questions[questionNum]
+    let question = questions [questionNum]
     console.log(question.answerNum)
 
     switch(question.answerNum){
