@@ -3,7 +3,7 @@ const answerForm = document.getElementById("answer-form")
 const timmer = document.getElementById("timmer")
 const nextButton = document.getElementById("next")
 const quitButton = document.getElementById("quit")
-var startTime = 15
+var startTime = 3
 
 
 const questionTitle = document.getElementById("question-title")
@@ -74,7 +74,7 @@ function quiz() {
         answer3Lable.innerText = question.three
         answer4Lable.innerText = question.four
         console.log("starquiz")
-      let nextQuestion= true
+      //let nextQuestion= true
 
         while (nextQuestion) {
             nextButton.addEventListener("click", (e) => {
@@ -103,10 +103,11 @@ function checkTimmer() {
         answerForm.style.display = "none"
         timmer.style.display = "none"
         startQuiz.style.display = "initial"
+        clearInterval(intervalId)
     }
 }
 
-setInterval(() => {
+    var intervalId = setInterval(() => {
     startTime--
     timmer.innerText = `${startTime} Seconds Left`
     checkTimmer()
@@ -115,7 +116,7 @@ setInterval(() => {
 function decreaseTimer() {
     startTime - 10
 }
-function stageNextQuestion(index, correct) {
+function stageNextQuestion(index,correct) {
     console.log(`Index: ${index} Correct Answers: ${correctAnswers}`)
 
     correct ? correctAnswers++ : decreaseTimer()
